@@ -11,7 +11,7 @@ def handle_message(message):
         model="text-davinci-003",
         prompt=message.text,
         temperature=0.9,
-        max_tokens=3000,
+        max_tokens=2048,
         top_p=1.0,
         frequency_penalty=0.0,
         presence_penalty=0.6,
@@ -19,4 +19,6 @@ def handle_message(message):
     )
     bot.send_message(chat_id=message.from_user.id, text=response['choices'][0]['text'])
 
-bot.polling()
+
+if __name__ == '__main__':
+    bot.polling()
